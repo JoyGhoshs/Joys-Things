@@ -539,4 +539,3 @@ kali@kali:~/HackTheBox/Spider$ python3 -m sshtunnel -K /home/kali/HackTheBox/Spi
 			
 ```
 I used the above method to portfwd using python module called sshtunnel.
-# If you like the writeup give rep+.
