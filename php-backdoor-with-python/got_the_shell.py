@@ -27,4 +27,4 @@ def uest(url):
         time.sleep(6.0)
         uest(url)
 
-uest('http://103.147.190.100')
+uest('targetip')
